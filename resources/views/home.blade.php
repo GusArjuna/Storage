@@ -17,34 +17,27 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>No.</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>No.</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
+                            <th>1.</th>
+                            <th>Sempak</th>
+                            <th>7</th>
+                            <th>Tersimpan</th>
                         </tr>
-                        
                     </tbody>
                 </table>
             </div>
