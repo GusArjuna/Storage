@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Stuff;
+use App\Http\Controllers\StuffController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home',[
-        "title" => "Dashboard",
-        "datum" => "s"
-    ]);
-});
+Route::get('/', [StuffController::class, 'index']);
+Route::get('/codestuff', [StuffController::class,'codest']); 
 Route::get('/stuffin', function () {
     return view('stuffin',[
         "title" => "Stuff IN"
@@ -38,10 +34,5 @@ Route::get('/formin', function () {
 Route::get('/formout', function () {
     return view('formout',[
         "title" => "Stuff Out"
-    ]);
-}); 
-Route::get('/codestuff', function () {
-    return view('codestuff',[
-        "title" => "Code Stuff"
     ]);
 }); 

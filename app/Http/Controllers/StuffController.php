@@ -15,7 +15,18 @@ class StuffController extends Controller
      */
     public function index()
     {
-        //
+    
+        return view('home',[
+            "title" => "Dashboard",
+            "Stuffs" => Stuff::all()
+        ]);
+    }
+
+    public function codest() 
+    {
+        return view('codestuff',[
+            "title" => "Code Stuff"
+        ]);
     }
 
     /**

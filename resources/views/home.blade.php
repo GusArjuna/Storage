@@ -36,13 +36,15 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($Stuffs as $stuff)
                         <tr>
-                            <th>1.</th>
-                            <th>01</th>
-                            <th>Sempak</th>
-                            <th>7</th>
-                            <th>Tersimpan</th>
+                            <th>{{ $loop->iteration }}</th>
+                            <th>{{ $stuff->kode }}</th>
+                            <th>{{ $stuff->nama }}</th>
+                            <th>{{ $stuff->jumlah }}</th>
+                            <th>{{ ($stuff->jumlah>0)? "Tersedia":"Kosong" }}</th>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
