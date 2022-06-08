@@ -30,3 +30,18 @@ Route::get('/stuffout', function () {
         "title" => "Stuff OUT"
     ]);
 }); 
+Route::get('/formin', function () {
+    return view('formin',[
+        "title" => "Incoming Data"
+    ]);
+}); 
+Route::get('/formout', function () {
+    return view('formout',[
+        "title" => "Stuff Out"
+    ]);
+}); 
+Route::get('/codestuff', function () {
+    return view('codestuff',[
+        "title" => "Code Stuff"
+    ]);
+}); 
