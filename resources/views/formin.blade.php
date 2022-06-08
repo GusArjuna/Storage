@@ -29,7 +29,7 @@
                         <input class="form-control" type="text" placeholder="Ketikkan Jumlah..." name="Jumlah" id="Jumlah">
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label for="tanggal" class="form-label">Tanggal Keluar</label>
+                        <label for="tanggal" class="form-label">Tanggal Masuk</label>
                         <input class="form-control" type="datetime-local" name="tanggal" id="tanggal">
                       </div>
                 </div>

@@ -40,7 +40,7 @@
             
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ ($title === "Dashboard")? 'active' : '' }}">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="{{ url('/') }}">
                     <i class="fas fa-fw fa-th"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -55,12 +55,12 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item {{ ($title === "Stuff IN")? 'active' : '' }}">
-                <a class="nav-link" href="/stuffin">
+                <a class="nav-link" href="{{ url('/stuffin') }}">
                     <i class="fas fa-fw fa-plus"></i>
                     <span>Barang Masuk</span></a>
             </li>
             <li class="nav-item {{ ($title === "Stuff OUT")? 'active' : '' }}">
-                <a class="nav-link" href="/stuffout">
+                <a class="nav-link" href="{{ url('/stuffout') }}">
                     <i class="fas fa-fw fa-share"></i>
                     <span>Barang Keluar</span></a>
             </li>
