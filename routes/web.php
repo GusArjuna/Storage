@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Stuff;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home',[
-        "title" => "Dashboard"
+        "title" => "Dashboard",
+        "datum" => "s"
     ]);
 });
 Route::get('/stuffin', function () {
