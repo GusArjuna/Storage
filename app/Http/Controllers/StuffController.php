@@ -58,7 +58,10 @@ class StuffController extends Controller
      */
     public function show(Stuff $stuff)
     {
-        //
+        return view('codestuff',[
+            "title" => "Code Stuff",
+            "stuff" => $stuff
+        ]);
     }
 
     /**

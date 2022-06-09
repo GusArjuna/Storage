@@ -15,9 +15,17 @@ class InstuffController extends Controller
      */
     public function index()
     {
-        //
+        return view('stuffin',[
+            "title" => "Stuff IN"
+        ]);
     }
 
+    public function formi()
+    {
+        return view('formin',[
+            "title" => "Incoming Data"
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -47,7 +55,10 @@ class InstuffController extends Controller
      */
     public function show(Instuff $instuff)
     {
-        //
+        return view('formin',[
+            "title" => "Incoming Data",
+            "stuff" => $instuff
+        ]);
     }
 
     /**

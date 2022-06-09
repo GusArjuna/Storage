@@ -38,15 +38,15 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($Stuffs as $stuff)
+                        @foreach ($Stuffs as $Stuf)
                         <tr>
                             <th>{{ $loop->iteration }}</th>
-                            <th>{{ $stuff->kode }}</th>
-                            <th>{{ $stuff->nama }}</th>
-                            <th>{{ $stuff->jumlah }}</th>
-                            <th>{{ ($stuff->jumlah>0)? "Tersedia":"Kosong" }}</th>
+                            <th>{{ $Stuf->kode }}</th>
+                            <th>{{ $Stuf->nama }}</th>
+                            <th>{{ $Stuf->jumlah }}</th>
+                            <th>{{ ($Stuf->jumlah>0)? "Tersedia":"Kosong" }}</th>
                             <th>
-                                <a href="#" class="btn btn-warning btn-circle">
+                                <a href="/1" class="btn btn-warning btn-circle">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <a href="#" class="btn btn-danger btn-circle">

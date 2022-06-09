@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InstuffController;
+use App\Http\Controllers\OutstuffController;
 use App\Http\Controllers\StuffController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,25 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [StuffController::class, 'index']);
-Route::get('/codestuff', [StuffController::class,'codest']); 
-Route::get('/stuffin', function () {
-    return view('stuffin',[
-        "title" => "Stuff IN"
-    ]);
+Route::controller(InstuffController::class)->group(function () {
+    Route::get('/stuffin', 'index');
+    Route::get('/formin', 'formi');
 });
-Route::get('/stuffout', function () {
-    return view('stuffout',[
-        "title" => "Stuff OUT"
-    ]);
-}); 
-Route::get('/formin', function () {
-    return view('formin',[
-        "title" => "Incoming Data"
-    ]);
-}); 
-Route::get('/formout', function () {
-    return view('formout',[
-        "title" => "Stuff Out"
-    ]);
-}); 
+Route::controller(OutstuffController::class)->group(function () {
+    Route::get('/stuffout', 'index');
+    Route::get('/formout', 'formo');
+});
+Route::controller(StuffController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/codestuff', 'codest');
+    Route::get('/{stuff}', 'show');
+});
