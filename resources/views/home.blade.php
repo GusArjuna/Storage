@@ -24,6 +24,7 @@
                             <th>Nama Barang</th>
                             <th>Jumlah</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -33,6 +34,7 @@
                             <th>Nama Barang</th>
                             <th>Jumlah</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -43,6 +45,14 @@
                             <th>{{ $stuff->nama }}</th>
                             <th>{{ $stuff->jumlah }}</th>
                             <th>{{ ($stuff->jumlah>0)? "Tersedia":"Kosong" }}</th>
+                            <th>
+                                <a href="#" class="btn btn-warning btn-circle">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger btn-circle">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </th>
                         </tr>
                         @endforeach
                     </tbody>

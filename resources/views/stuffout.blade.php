@@ -24,6 +24,7 @@
                             <th>Jumlah</th>
                             <th>Tanggal Keluar</th>
                             <th>Status Barang</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -33,6 +34,7 @@
                             <th>Jumlah</th>
                             <th>Tanggal Keluar</th>
                             <th>Status Barang</th>
+                            <th></th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -42,6 +44,14 @@
                             <th>7</th>
                             <th>1/2/2022</th>
                             <th>Semua Bagus</th>
+                            <th>
+                                <a href="#" class="btn btn-warning btn-circle">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger btn-circle">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </th>
                         </tr>
                     </tbody>
                 </table>
