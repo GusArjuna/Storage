@@ -17,7 +17,7 @@ class InstuffController extends Controller
     {
         return view('stuffin',[
             "title" => "Stuff IN",
-            "stuffin" => Instuff::all()
+            "stuffins" => Instuff::all()
         ]);
     }
 
@@ -45,6 +45,7 @@ class InstuffController extends Controller
             'kode' => 'required',
             'jumlah' => 'required',
             'tanggal' => 'required',
+            'keterangan' => 'required',
         ]);
         Instuff::create($request->all());
         return redirect('/stuffin')->with('status','Data Added!');

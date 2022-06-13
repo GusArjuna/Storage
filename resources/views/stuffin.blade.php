@@ -43,12 +43,13 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($Stuffins as $Stuffin)
                         <tr>
-                            <th>1.</th>
-                            <th>Sempak</th>
-                            <th>7</th>
-                            <th>1/2/2022</th>
-                            <th>Semua Bagus</th>
+                            <th>{{ $loop->iteration }}</th>
+                            <th>{{ $Stuffin->kode }} - {{ $Stuffin->nama }}</th>
+                            <th>{{ $Stuffin->jumlah }}</th>
+                            <th>{{ $Stuffin->tanggal }}</th>
+                            <th>{{ $Stuffin->keterangan }}</th>
                             <th>
                                 <a href="{{ url('/stuffin/1') }}" class="btn btn-warning btn-circle">
                                     <i class="fas fa-edit"></i>
@@ -58,6 +59,7 @@
                                 </a>
                             </th>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

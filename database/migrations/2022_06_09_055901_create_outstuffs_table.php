@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('kode')->unique();
             $table->integer('jumlah');
             $table->date('tanggal'); 
+            $table->date('Keterangan'); 
             $table->timestamps();
         });
     }

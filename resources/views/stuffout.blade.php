@@ -43,21 +43,23 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($Stuffouts as $stuffout)
                         <tr>
-                            <th>1.</th>
-                            <th>Sempak</th>
-                            <th>7</th>
-                            <th>1/2/2022</th>
-                            <th>Semua Bagus</th>
+                            <th>{{ $loop->iteration }}</th>
+                            <th>{{ $stuffout->kode }} - {{ $stuffout->nama }}</th>
+                            <th>{{ $stuffout->jumlah }}</th>
+                            <th>{{ $stuffout->tanggal }}</th>
+                            <th>{{ $stuffout->keterangan }}</th>
                             <th>
-                                <a href="{{ url('/stuffout/1') }}" class="btn btn-warning btn-circle">
+                                <a href="{{ url('/stuffin/1') }}" class="btn btn-warning btn-circle">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{{ url('/stuffout/del/1') }}" class="btn btn-danger btn-circle">
+                                <a href="{{ url('/stuffin/del/1') }}" class="btn btn-danger btn-circle">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </th>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

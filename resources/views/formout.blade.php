@@ -41,6 +41,10 @@
                         <label for="tanggal" class="form-label">Tanggal Keluar</label>
                         <input class="form-control" type="date" name="tanggal" id="tanggal">
                       </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="keterangan" class="form-label">Keterangan</label>
+                        <input class="form-control" type="text" placeholder="Bagus / Rusak ..." name="keterangan" id="keterangan">
+                      </div>
                 </div>
                 <button class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-50">

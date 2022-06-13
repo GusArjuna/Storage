@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class outstuff extends Model
 {
     use HasFactory;
-    protected $fillable = ['kode','jumlah','tanggal'];
+    protected $fillable = ['kode','jumlah','tanggal','keterangan'];
 }

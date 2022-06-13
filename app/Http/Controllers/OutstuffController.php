@@ -17,7 +17,7 @@ class OutstuffController extends Controller
     {
         return view('stuffout',[
             "title" => "Stuff OUT",
-            "stuffout" => outstuff::all()
+            "stuffouts" => outstuff::all()
         ]);
     }
     /**
