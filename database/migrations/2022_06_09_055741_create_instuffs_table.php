@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('instuffs', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode')->unique();
+            $table->integer('kode');
             $table->integer('jumlah'); 
             $table->date('tanggal'); 
             $table->string('keterangan'); 

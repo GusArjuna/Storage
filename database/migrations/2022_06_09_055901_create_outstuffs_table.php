@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('outstuffs', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode')->unique();
+            $table->integer('kode');
             $table->integer('jumlah');
             $table->date('tanggal'); 
-            $table->date('Keterangan'); 
+            $table->string('keterangan'); 
             $table->timestamps();
         });
     }

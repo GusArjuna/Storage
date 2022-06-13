@@ -21,11 +21,12 @@
                 </div>
             @endif
             <form method="POST" action="/stuffout/formout">
+                @csrf
                 <div class="row g-3">
                     <div class="col-md-6 mb-3">
                         <label for="kode" class="form-label">nama & Kode Barang</label>
                         <select class="form-control" aria-label=".form-select-sm example" name="kode" id="kode">
-                          <option selected>- none -</option>
+                          <option selected value="">- none -</option>
                           <option value="1">01 - Borax</option>
                           <option value="2">Two</option>
                           <option value="3">Three</option>
@@ -34,8 +35,8 @@
                 </div>
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
-                        <label for="Jumlah" class="form-label">Jumlah</label>
-                        <input class="form-control" type="text" placeholder="Ketikkan Jumlah..." name="Jumlah" id="Jumlah">
+                        <label for="jumlah" class="form-label">Jumlah</label>
+                        <input class="form-control" type="text" placeholder="Ketikkan jumlah..." name="jumlah" id="jumlah">
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="tanggal" class="form-label">Tanggal Keluar</label>

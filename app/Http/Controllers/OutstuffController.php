@@ -17,7 +17,7 @@ class OutstuffController extends Controller
     {
         return view('stuffout',[
             "title" => "Stuff OUT",
-            "stuffouts" => outstuff::all()
+            "Stuffouts" => outstuff::all()
         ]);
     }
     /**
@@ -44,9 +44,10 @@ class OutstuffController extends Controller
             'kode' => 'required',
             'jumlah' => 'required',
             'tanggal' => 'required',
+            'keterangan' => 'required',
         ]);
         outstuff::create($request->all());
-        return redirect('/stuffin')->with('status','Data Added!');
+        return redirect('/stuffout')->with('status','Data Added!');
     }
 
     /**

@@ -26,7 +26,7 @@
                     <div class="col-md-6 mb-3">
                         <label for="kode" class="form-label">Nama & Kode Barang</label>
                         <select class="form-control" aria-label=".form-select-sm example" name="kode" id="kode">
-                          <option selected>- none -</option>
+                          <option selected value="">- none -</option>
                           <option value="1">1 - Meja</option>
                           <option value="2">2 - Kursi</option>
                           <option value="3">3 - Almari</option>

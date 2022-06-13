@@ -17,7 +17,7 @@ class InstuffController extends Controller
     {
         return view('stuffin',[
             "title" => "Stuff IN",
-            "stuffins" => Instuff::all()
+            "Stuffins" => Instuff::all()
         ]);
     }
 
