@@ -47,7 +47,12 @@ class StuffController extends Controller
      */
     public function store(StoreStuffRequest $request)
     {
-        //
+        $request->validate([
+            'kode' => 'required',
+            'nama' => 'required',
+        ]);
+        Stuff::create($request->all());
+        return redirect('/stuffin')->with('status','Data Added!');
     }
 
     /**

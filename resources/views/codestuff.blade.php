@@ -20,7 +20,7 @@
                     </ul>
                 </div>
             @endif
-            <form>
+            <form method="POST" action="">
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
                         <label for="kode" class="form-label">Kode Barang</label>
@@ -31,7 +31,7 @@
                         <input class="form-control" type="text" placeholder="Nama Barang" name="nama" id="nama">
                     </div>
                 </div>
-                <button href="#" class="btn btn-info btn-icon-split">
+                <button class="btn btn-info btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-check"></i>
                     </span>

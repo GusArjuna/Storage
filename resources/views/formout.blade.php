@@ -23,8 +23,8 @@
             <form method="POST" action="/stuffout/formout">
                 <div class="row g-3">
                     <div class="col-md-6 mb-3">
-                        <label for="nama" class="form-label">Nama & Kode Barang</label>
-                        <select class="form-control" aria-label=".form-select-sm example" name="nama" id="nama">
+                        <label for="kode" class="form-label">nama & Kode Barang</label>
+                        <select class="form-control" aria-label=".form-select-sm example" name="kode" id="kode">
                           <option selected>- none -</option>
                           <option value="1">01 - Borax</option>
                           <option value="2">Two</option>

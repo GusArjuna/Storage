@@ -16,7 +16,8 @@ class OutstuffController extends Controller
     public function index()
     {
         return view('stuffout',[
-            "title" => "Stuff OUT"
+            "title" => "Stuff OUT",
+            "stuffout" => outstuff::all()
         ]);
     }
     /**
@@ -39,7 +40,13 @@ class OutstuffController extends Controller
      */
     public function store(StoreoutstuffRequest $request)
     {
-        //
+        $request->validate([
+            'kode' => 'required',
+            'jumlah' => 'required',
+            'tanggal' => 'required',
+        ]);
+        outstuff::create($request->all());
+        return redirect('/stuffin')->with('status','Data Added!');
     }
 
     /**

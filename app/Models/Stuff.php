@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Stuff extends Model
 {
     use HasFactory;
+    protected $fillable = ['kode','nama'];
 }

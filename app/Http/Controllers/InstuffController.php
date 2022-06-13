@@ -16,7 +16,8 @@ class InstuffController extends Controller
     public function index()
     {
         return view('stuffin',[
-            "title" => "Stuff IN"
+            "title" => "Stuff IN",
+            "stuffin" => Instuff::all()
         ]);
     }
 
