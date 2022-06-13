@@ -11,6 +11,15 @@
             <h6 class="m-0 font-weight-bold text-primary">Form for Code Stuff</h6>
         </div>
         <div class="card-body">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form>
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
@@ -22,12 +31,12 @@
                         <input class="form-control" type="text" placeholder="Nama Barang" name="nama" id="nama">
                     </div>
                 </div>
-                <a href="#" class="btn btn-info btn-icon-split">
+                <button href="#" class="btn btn-info btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-check"></i>
                     </span>
                     <span class="text">Submit</span>
-                </a>
+                </button>
               </form>
         </div>
     </div>

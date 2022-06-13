@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('outstuffs', function (Blueprint $table) {
             $table->id();
+            $table->integer('kode')->unique();
+            $table->integer('jumlah');
+            $table->date('tanggal'); 
             $table->timestamps();
         });
     }

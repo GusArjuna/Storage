@@ -11,7 +11,16 @@
             <h6 class="m-0 font-weight-bold text-primary">Stuff Out Form</h6>
         </div>
         <div class="card-body">
-            <form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form method="POST" action="/stuffout/formout">
                 <div class="row g-3">
                     <div class="col-md-6 mb-3">
                         <label for="nama" class="form-label">Nama & Kode Barang</label>
@@ -30,15 +39,15 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="tanggal" class="form-label">Tanggal Keluar</label>
-                        <input class="form-control" type="datetime-local" name="tanggal" id="tanggal">
+                        <input class="form-control" type="date" name="tanggal" id="tanggal">
                       </div>
                 </div>
-                <a href="#" class="btn btn-danger btn-icon-split">
+                <button class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-check"></i>
                     </span>
                     <span class="text">Submit</span>
-                </a>
+                </button>
               </form>  
         </div>
     </div>

@@ -5,7 +5,7 @@
         <h1 class="h3 mb-0 text-gray-800">Barang Masuk</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                <a href="{{ url('/formin') }}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
+                <a href="{{ url('/stuffin/formin') }}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
                     class="fas fa-plus fa-sm text-white-50"></i> Barang Masuk</a>
     </div>
 
@@ -15,6 +15,11 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Semua Barang</h6>
         </div>
         <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -45,10 +50,10 @@
                             <th>1/2/2022</th>
                             <th>Semua Bagus</th>
                             <th>
-                                <a href="#" class="btn btn-warning btn-circle">
+                                <a href="{{ url('/stuffin/1') }}" class="btn btn-warning btn-circle">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-circle">
+                                <a href="{{ url('/stuffin/del/1') }}" class="btn btn-danger btn-circle">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </th>

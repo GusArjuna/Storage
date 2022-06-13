@@ -15,6 +15,11 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Semua Barang</h6>
         </div>
         <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -46,10 +51,10 @@
                             <th>{{ $Stuf->jumlah }}</th>
                             <th>{{ ($Stuf->jumlah>0)? "Tersedia":"Kosong" }}</th>
                             <th>
-                                <a href="/1" class="btn btn-warning btn-circle">
+                                <a href="{{ url('/1') }}" class="btn btn-warning btn-circle">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-circle">
+                                <a href="{{ url('/del/1') }}" class="btn btn-danger btn-circle">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </th>

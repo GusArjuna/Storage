@@ -18,14 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(InstuffController::class)->group(function () {
     Route::get('/stuffin', 'index');
-    Route::get('/formin', 'formi');
+    Route::get('/stuffin/formin', 'create');
+    Route::post('/stuffin/formin', 'store');
+    Route::get('/stuffin/{stuff}', 'show');
+    Route::get('/stuffin/del/{stuff}', 'destroy');
 });
 Route::controller(OutstuffController::class)->group(function () {
     Route::get('/stuffout', 'index');
-    Route::get('/formout', 'formo');
+    Route::get('/stuffout/formout', 'create');
+    Route::post('/stuffout/formout', 'store');
+    Route::get('/stuffout/{stuff}', 'show');
+    Route::get('/stuffout/del/{stuff}', 'destroy');
 });
 Route::controller(StuffController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/codestuff', 'codest');
     Route::get('/{stuff}', 'show');
+    Route::get('/del/{stuff}', 'destroy');
 });

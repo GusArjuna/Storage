@@ -11,34 +11,44 @@
             <h6 class="m-0 font-weight-bold text-primary">Incoming Form</h6>
         </div>
         <div class="card-body">
-            <form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form method="POST" action="/stuffin/formin">
+                @csrf
                 <div class="row g-3">
                     <div class="col-md-6 mb-3">
-                        <label for="nama" class="form-label">Nama & Kode Barang</label>
-                        <select class="form-control" aria-label=".form-select-sm example" name="nama" id="nama">
+                        <label for="kode" class="form-label">Nama & Kode Barang</label>
+                        <select class="form-control" aria-label=".form-select-sm example" name="kode" id="kode">
                           <option selected>- none -</option>
-                          <option value="1">01 - Borax</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                          <option value="1">1 - Meja</option>
+                          <option value="2">2 - Kursi</option>
+                          <option value="3">3 - Almari</option>
                         </select>
                       </div>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
-                        <label for="Jumlah" class="form-label">Jumlah</label>
-                        <input class="form-control" type="text" placeholder="Ketikkan Jumlah..." name="Jumlah" id="Jumlah">
+                        <label for="jumlah" class="form-label">Jumlah</label>
+                        <input class="form-control" type="text" placeholder="Ketikkan Jumlah..." name="jumlah" id="jumlah">
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="tanggal" class="form-label">Tanggal Masuk</label>
-                        <input class="form-control" type="datetime-local" name="tanggal" id="tanggal">
+                        <input class="form-control" type="date" name="tanggal" id="tanggal">
                       </div>
                 </div>
-                <a href="#" class="btn btn-success btn-icon-split">
+                <button class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-check"></i>
                     </span>
                     <span class="text">Submit</span>
-                </a>
+                </button>
               </form>
         </div>
     </div>

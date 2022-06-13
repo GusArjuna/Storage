@@ -19,13 +19,6 @@ class OutstuffController extends Controller
             "title" => "Stuff OUT"
         ]);
     }
-
-    public function formo()
-    {
-        return view('formout',[
-            "title" => "Stuff Out"
-        ]);
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -33,7 +26,9 @@ class OutstuffController extends Controller
      */
     public function create()
     {
-        //
+        return view('formout',[
+            "title" => "Stuff Out"
+        ]);
     }
 
     /**

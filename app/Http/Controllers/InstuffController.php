@@ -20,12 +20,6 @@ class InstuffController extends Controller
         ]);
     }
 
-    public function formi()
-    {
-        return view('formin',[
-            "title" => "Incoming Data"
-        ]);
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -33,7 +27,9 @@ class InstuffController extends Controller
      */
     public function create()
     {
-        //
+        return view('formin',[
+            "title" => "Incoming Data"
+        ]);
     }
 
     /**
@@ -44,7 +40,13 @@ class InstuffController extends Controller
      */
     public function store(StoreInstuffRequest $request)
     {
-        //
+        $request->validate([
+            'kode' => 'required',
+            'jumlah' => 'required',
+            'tanggal' => 'required',
+        ]);
+        Instuff::create($request->all());
+        return redirect('/stuffin')->with('status','Data Added!');
     }
 
     /**
