@@ -22,13 +22,6 @@ class StuffController extends Controller
         ]);
     }
 
-    public function codest() 
-    {
-        return view('codestuff',[
-            "title" => "Code Stuff"
-        ]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +29,9 @@ class StuffController extends Controller
      */
     public function create()
     {
-        //
+        return view('codestuff',[
+            "title" => "Code Stuff"
+        ]);
     }
 
     /**
@@ -52,7 +47,7 @@ class StuffController extends Controller
             'nama' => 'required',
         ]);
         Stuff::create($request->all());
-        return redirect('/stuffin')->with('status','Data Added!');
+        return redirect('/codestuff')->with('status','Data Added!');
     }
 
     /**

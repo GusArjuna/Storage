@@ -9,4 +9,7 @@ class Stuff extends Model
 {
     use HasFactory;
     protected $fillable = ['kode','nama'];
+    protected $attributes =[
+        'jumlah' => 0,
+    ];
 }

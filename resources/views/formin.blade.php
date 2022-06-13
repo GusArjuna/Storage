@@ -11,40 +11,43 @@
             <h6 class="m-0 font-weight-bold text-primary">Incoming Form</h6>
         </div>
         <div class="card-body">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <form method="POST" action="/stuffin/formin">
                 @csrf
                 <div class="row g-3">
                     <div class="col-md-6 mb-3">
                         <label for="kode" class="form-label">Nama & Kode Barang</label>
-                        <select class="form-control" aria-label=".form-select-sm example" name="kode" id="kode">
+                        <select class="form-control @error('kode') is-invalid @enderror" aria-label=".form-select-sm example" name="kode" id="kode">
                           <option selected value="">- none -</option>
                           <option value="1">1 - Meja</option>
                           <option value="2">2 - Kursi</option>
                           <option value="3">3 - Almari</option>
                         </select>
+                        @error('kode')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
                         <label for="jumlah" class="form-label">Jumlah</label>
-                        <input class="form-control" type="text" placeholder="Ketikkan Jumlah..." name="jumlah" id="jumlah">
+                        <input class="form-control @error('jumlah') is-invalid @enderror" type="text" placeholder="Ketikkan Jumlah..." name="jumlah" id="jumlah">
+                        @error('jumlah')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="tanggal" class="form-label">Tanggal Masuk</label>
-                        <input class="form-control" type="date" name="tanggal" id="tanggal">
+                        <input class="form-control @error('tanggal') is-invalid @enderror" type="date" name="tanggal" id="tanggal">
+                        @error('tanggal')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="keterangan" class="form-label">Keterangan</label>
-                        <input class="form-control" type="text" placeholder="Bagus / Rusak ..." name="keterangan" id="keterangan">
+                        <input class="form-control @error('keterangan') is-invalid @enderror" type="text" placeholder="Bagus / Rusak ..." name="keterangan" id="keterangan">
+                        @error('keterangan')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                 </div>
                 <button class="btn btn-success btn-icon-split">

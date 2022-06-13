@@ -11,24 +11,22 @@
             <h6 class="m-0 font-weight-bold text-primary">Form for Code Stuff</h6>
         </div>
         <div class="card-body">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <form method="POST" action="">
+            <form method="POST" action="/codestuff/formout">
+                @csrf
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
                         <label for="kode" class="form-label">Kode Barang</label>
-                        <input class="form-control" type="text" placeholder="Kode Barang" name="kode" id="kode">
+                        <input class="form-control @error('kode') is-invalid @enderror" type="text" placeholder="Kode Barang" name="kode" id="kode">
+                        @error('kode')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="nama" class="form-label">Nama Barang</label>
-                        <input class="form-control" type="text" placeholder="Nama Barang" name="nama" id="nama">
+                        <input class="form-control @error('nama') is-invalid @enderror" type="text" placeholder="Nama Barang" name="nama" id="nama">
+                        @error('nama')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
                 <button class="btn btn-info btn-icon-split">

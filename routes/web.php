@@ -32,7 +32,8 @@ Route::controller(OutstuffController::class)->group(function () {
 });
 Route::controller(StuffController::class)->group(function () {
     Route::get('/', 'index');
-    Route::get('/codestuff', 'codest');
+    Route::get('/codestuff', 'create');
+    Route::post('/codestuff/formout', 'store');
     Route::get('/{stuff}', 'show');
     Route::get('/del/{stuff}', 'destroy');
 });
