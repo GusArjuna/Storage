@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\outstuff;
 use App\Http\Requests\StoreoutstuffRequest;
 use App\Http\Requests\UpdateoutstuffRequest;
+use App\Models\Stuff;
 
 class OutstuffController extends Controller
 {
@@ -17,7 +18,8 @@ class OutstuffController extends Controller
     {
         return view('stuffout',[
             "title" => "Stuff OUT",
-            "Stuffouts" => outstuff::all()
+            "Stuffouts" => outstuff::all(),
+            "stuffs" => Stuff::all()
         ]);
     }
     /**
@@ -28,7 +30,8 @@ class OutstuffController extends Controller
     public function create()
     {
         return view('formout',[
-            "title" => "Stuff Out"
+            "title" => "Stuff Out",
+            "stuffs" => Stuff::all()
         ]);
     }
 

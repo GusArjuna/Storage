@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Instuff;
 use App\Http\Requests\StoreInstuffRequest;
 use App\Http\Requests\UpdateInstuffRequest;
+use App\Models\Stuff;
 
 class InstuffController extends Controller
 {
@@ -17,7 +18,8 @@ class InstuffController extends Controller
     {
         return view('stuffin',[
             "title" => "Stuff IN",
-            "Stuffins" => Instuff::all()
+            "Stuffins" => Instuff::all(),
+            "stuffs" => Stuff::all()
         ]);
     }
 
@@ -29,7 +31,8 @@ class InstuffController extends Controller
     public function create()
     {
         return view('formin',[
-            "title" => "Incoming Data"
+            "title" => "Incoming Data",
+            "stuffs" => Stuff::all()
         ]);
     }
 

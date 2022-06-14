@@ -16,14 +16,14 @@
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
                         <label for="kode" class="form-label">Kode Barang</label>
-                        <input class="form-control @error('kode') is-invalid @enderror" type="text" placeholder="Kode Barang" name="kode" id="kode">
+                        <input class="form-control @error('kode') is-invalid @enderror" type="text" placeholder="Kode Barang" name="kode" id="kode" value="{{ old('kode') }}">
                         @error('kode')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="nama" class="form-label">Nama Barang</label>
-                        <input class="form-control @error('nama') is-invalid @enderror" type="text" placeholder="Nama Barang" name="nama" id="nama">
+                        <input class="form-control @error('nama') is-invalid @enderror" type="text" placeholder="Nama Barang" name="nama" id="nama" value="{{ old('nama') }}">
                         @error('nama')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
