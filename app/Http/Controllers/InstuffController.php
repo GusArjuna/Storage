@@ -73,9 +73,10 @@ class InstuffController extends Controller
      */
     public function edit(Instuff $instuff)
     {
-        return view('formin',[
+        return view('forminedit',[
             "title" => "Incoming Data",
-            "stuff" => $instuff
+            "instuff" => $instuff,
+            "stuffs" => Stuff::all()
         ]);
     }
 
@@ -88,7 +89,20 @@ class InstuffController extends Controller
      */
     public function update(UpdateInstuffRequest $request, Instuff $instuff)
     {
-        //
+        $request->validate([
+            'kode' => 'required',
+            'jumlah' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required',
+        ]);
+        Instuff::where('id',$instuff->id)
+              ->update([
+                'kode'=> $request->kode,
+                'jumlah'=> $request->jumlah,
+                'tanggal'=> $request->tanggal,
+                'keterangan'=> $request->keterangan,
+              ]);
+        return redirect('/stuffin')->with('status','Data Updated');
     }
 
     /**
@@ -99,6 +113,7 @@ class InstuffController extends Controller
      */
     public function destroy(Instuff $instuff)
     {
-        return $instuff;
+        Instuff::destroy($instuff->id);
+        return redirect('/stuffin')->with('status','Data Deleted');
     }
 }

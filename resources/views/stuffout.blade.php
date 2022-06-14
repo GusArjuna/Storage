@@ -52,6 +52,7 @@
                                     ($stuff->kode==$stuffout->kode)? $stuff->kode." - ".$stuff->nama :""
                                      }}
                                 @endforeach
+                            </th>
                             <th>{{ $stuffout->jumlah }}</th>
                             <th>{{ $stuffout->tanggal }}</th>
                             <th>{{ $stuffout->keterangan }}</th>

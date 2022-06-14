@@ -31,7 +31,7 @@
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">
                         <label for="jumlah" class="form-label">Jumlah</label>
-                        <input class="form-control @error('jumlah') is-invalid @enderror" type="text" placeholder="Ketikkan Jumlah..." name="jumlah" id="jumlah" value="{{ $instuff->kode }}">
+                        <input class="form-control @error('jumlah') is-invalid @enderror" type="text" placeholder="Ketikkan Jumlah..." name="jumlah" id="jumlah" value="{{ $instuff->jumlah }}">
                         @error('jumlah')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

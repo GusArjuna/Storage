@@ -46,7 +46,11 @@
                         @foreach ($Stuffins as $Stuffin)
                         <tr>
                             <th>{{ $loop->iteration }}</th>
-                            <th>{{ $Stuffin->kode }} - {{ $Stuffin->nama }}</th>
+                            <th>@foreach ($stuffs as $stuff)
+                                {{ 
+                                ($stuff->kode==$Stuffin->kode)? $stuff->kode." - ".$stuff->nama :""
+                                 }}
+                            @endforeach</th>
                             <th>{{ $Stuffin->jumlah }}</th>
                             <th>{{ $Stuffin->tanggal }}</th>
                             <th>{{ $Stuffin->keterangan }}</th>
