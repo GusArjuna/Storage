@@ -46,17 +46,26 @@
                         @foreach ($Stuffouts as $stuffout)
                         <tr>
                             <th>{{ $loop->iteration }}</th>
-                            <th>{{ $stuffout->kode }} - {{ $stuffout->nama }}</th>
+                            <th>
+                                @foreach ($stuffs as $stuff)
+                                    {{ 
+                                    ($stuff->kode==$stuffout->kode)? $stuff->kode." - ".$stuff->nama :""
+                                     }}
+                                @endforeach
                             <th>{{ $stuffout->jumlah }}</th>
                             <th>{{ $stuffout->tanggal }}</th>
                             <th>{{ $stuffout->keterangan }}</th>
                             <th>
-                                <a href="{{ url('/stuffin/1') }}" class="btn btn-warning btn-circle">
+                                <a href="stuffout/{{ $stuffout->id }}/edit" class="btn btn-warning btn-circle">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{{ url('/stuffin/del/1') }}" class="btn btn-danger btn-circle">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <form action="stuffout/{{ $stuffout->id }}" method="POST" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger btn-circle">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </th>
                         </tr>
                         @endforeach

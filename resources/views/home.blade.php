@@ -51,12 +51,16 @@
                             <th>{{ $Stuf->jumlah }}</th>
                             <th>{{ ($Stuf->jumlah>0)? "Tersedia":"Kosong" }}</th>
                             <th>
-                                <a href="{{ url('/1') }}" class="btn btn-warning btn-circle">
+                                <a href="{{ $Stuf->id }}/edit" class="btn btn-warning btn-circle">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{{ url('/del/1') }}" class="btn btn-danger btn-circle">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <form action="{{ $Stuf->id }}" method="POST" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger btn-circle">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </th>
                         </tr>
                         @endforeach

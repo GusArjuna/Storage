@@ -62,10 +62,7 @@ class InstuffController extends Controller
      */
     public function show(Instuff $instuff)
     {
-        return view('formin',[
-            "title" => "Incoming Data",
-            "stuff" => $instuff
-        ]);
+        
     }
 
     /**
@@ -76,7 +73,10 @@ class InstuffController extends Controller
      */
     public function edit(Instuff $instuff)
     {
-        //
+        return view('formin',[
+            "title" => "Incoming Data",
+            "stuff" => $instuff
+        ]);
     }
 
     /**
@@ -99,6 +99,6 @@ class InstuffController extends Controller
      */
     public function destroy(Instuff $instuff)
     {
-        //
+        return $instuff;
     }
 }

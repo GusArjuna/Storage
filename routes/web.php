@@ -20,20 +20,23 @@ Route::controller(InstuffController::class)->group(function () {
     Route::get('/stuffin', 'index');
     Route::get('/stuffin/formin', 'create');
     Route::post('/stuffin/formin', 'store');
-    Route::get('/stuffin/{stuff}', 'show');
-    Route::delete('/stuffin/del/{stuff}', 'destroy');
+    Route::get('/stuffin/{instuff}/edit', 'edit');
+    Route::delete('/stuffin/{instuff}', 'destroy');
+    Route::patch('/stuffin/{instuff}', 'update');
 });
 Route::controller(OutstuffController::class)->group(function () {
     Route::get('/stuffout', 'index');
     Route::get('/stuffout/formout', 'create');
     Route::post('/stuffout/formout', 'store');
-    Route::get('/stuffout/{stuff}', 'show');
-    Route::delete('/stuffout/del/{stuff}', 'destroy');
+    Route::get('/stuffout/{outstuff}/edit', 'edit');
+    Route::delete('/stuffout/{outstuff}', 'destroy');
+    Route::patch('/stuffout/{outstuff}', 'update');
 });
 Route::controller(StuffController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/codestuff', 'create');
     Route::post('/codestuff', 'store');
-    Route::get('/{stuff}', 'show');
-    Route::delete('/del/{stuff}', 'destroy');
+    Route::get('/{stuff}/edit', 'edit');
+    Route::delete('/{stuff}', 'destroy');
+    Route::patch('/{stuff}', 'update');
 });

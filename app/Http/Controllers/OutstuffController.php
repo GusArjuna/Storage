@@ -61,10 +61,6 @@ class OutstuffController extends Controller
      */
     public function show(outstuff $outstuff)
     {
-        return view('formout',[
-            "title" => "Stuff Out",
-            "stuff" => $outstuff
-        ]);
     }
 
     /**
@@ -75,7 +71,12 @@ class OutstuffController extends Controller
      */
     public function edit(outstuff $outstuff)
     {
-        //
+        
+        return view('formoutedit',[
+            "title" => "Stuff Out",
+            "outstuff" => $outstuff,
+            "stuffs" => Stuff::all()
+        ]);
     }
 
     /**
@@ -87,7 +88,20 @@ class OutstuffController extends Controller
      */
     public function update(UpdateoutstuffRequest $request, outstuff $outstuff)
     {
-        //
+        $request->validate([
+            'kode' => 'required',
+            'jumlah' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required',
+        ]);
+        outstuff::where('id',$outstuff->id)
+              ->update([
+                'kode'=> $request->kode,
+                'jumlah'=> $request->jumlah,
+                'tanggal'=> $request->tanggal,
+                'keterangan'=> $request->keterangan,
+              ]);
+        return redirect('/stuffout')->with('status','Data Updated');
     }
 
     /**
@@ -98,6 +112,7 @@ class OutstuffController extends Controller
      */
     public function destroy(outstuff $outstuff)
     {
-        //
+        outstuff::destroy($outstuff->id);
+        return redirect('/stuffout')->with('status','Data Deleted');
     }
 }
