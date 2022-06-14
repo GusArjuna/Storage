@@ -11,7 +11,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Form for Code Stuff</h6>
         </div>
         <div class="card-body">
-            <form method="POST" action="/codestuff/formout">
+            <form method="POST" action="/codestuff">
                 @csrf
                 <div class="row g-3">
                     <div class="col-md-3 mb-3">

@@ -43,11 +43,11 @@ class StuffController extends Controller
     public function store(StoreStuffRequest $request)
     {
         $request->validate([
-            'kode' => 'required',
+            'kode' => 'required|unique:stuffs,kode',
             'nama' => 'required',
         ]);
         Stuff::create($request->all());
-        return redirect('/codestuff')->with('status','Data Added!');
+        return redirect('/')->with('status','Data Added!');
     }
 
     /**
