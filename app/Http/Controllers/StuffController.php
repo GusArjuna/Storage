@@ -15,11 +15,25 @@ class StuffController extends Controller
      */
     public function index()
     {
-    
+        $Stuffs=Stuff::latest();
+
+        if(request('search')){
+            if(strtolower(request('search'))=='kosong'){
+                $Stuffs->where('jumlah','=',0);
+            }elseif(strtolower(request('search'))=='tersedia'){
+                $Stuffs->where('jumlah','>',1);
+            }else{
+                $Stuffs->where('nama','like','%'.request('search').'%')
+                   ->orwhere('kode','like','%'.request('search').'%')
+                   ->orwhere('jumlah','like','%'.request('search').'%');
+            }
+        }
         return view('home',[
             "title" => "Dashboard",
-            "Stuffs" => Stuff::all()
+            "Stuffs" => $Stuffs->paginate(8)->withQueryString()
         ]);
+        
+        
     }
 
     /**

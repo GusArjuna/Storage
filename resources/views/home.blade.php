@@ -1,4 +1,16 @@
 @extends('layout.navmenu')
+@section('searchb')
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="/">
+    <div class="input-group">
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." name="search">
+        <div class="input-group-append">
+            <button class="btn btn-info">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+@endsection
 @section('container')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -67,6 +79,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $Stuffs->links() }}
         </div>
     </div>
 @endsection

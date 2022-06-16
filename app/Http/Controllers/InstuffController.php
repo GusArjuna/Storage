@@ -16,10 +16,31 @@ class InstuffController extends Controller
      */
     public function index()
     {
+        $Stuffs=Stuff::all();
+        $instuff=Instuff::latest();
+        
+        if(request('search')){
+            $check = true;
+            foreach ($Stuffs as $stuff) {
+                if (strtolower($stuff->nama)==strtolower(request('search'))) {
+                    $instuff->where('kode','like','%'.$stuff->kode.'%');
+                    $check = false;
+                    break;
+                }
+            }
+            if($check==true){
+                $instuff->where('kode','like','%'.request('search').'%')
+                          ->orwhere('tanggal','like','%'.request('search').'%')
+                          ->orwhere('jumlah','like','%'.request('search').'%')
+                          ->orwhere('keterangan','like','%'.request('search').'%');
+            }
+            
+            
+        }
         return view('stuffin',[
             "title" => "Stuff IN",
-            "Stuffins" => Instuff::all(),
-            "stuffs" => Stuff::all()
+            "Stuffins" => $instuff->paginate(8)->withQueryString(),
+            "stuffs" => $Stuffs
         ]);
     }
 

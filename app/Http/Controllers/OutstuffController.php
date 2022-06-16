@@ -16,10 +16,31 @@ class OutstuffController extends Controller
      */
     public function index()
     {
+        $Stuffs=Stuff::all();
+        $Outstuffs=outstuff::latest();
+        
+        if(request('search')){
+            $check = true;
+            foreach ($Stuffs as $stuff) {
+                if (strtolower($stuff->nama)==strtolower(request('search'))) {
+                    $Outstuffs->where('kode','like','%'.$stuff->kode.'%');
+                    $check = false;
+                    break;
+                }
+            }
+            if($check==true){
+                $Outstuffs->where('kode','like','%'.request('search').'%')
+                          ->orwhere('tanggal','like','%'.request('search').'%')
+                          ->orwhere('jumlah','like','%'.request('search').'%')
+                          ->orwhere('keterangan','like','%'.request('search').'%');
+            }
+            
+            
+        }
         return view('stuffout',[
             "title" => "Stuff OUT",
-            "Stuffouts" => outstuff::all(),
-            "stuffs" => Stuff::all()
+            "Stuffouts" => $Outstuffs->paginate(8)->withQueryString(),
+            "stuffs" => $Stuffs
         ]);
     }
     /**
