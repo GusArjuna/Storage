@@ -40,3 +40,9 @@ Route::controller(StuffController::class)->group(function () {
     Route::delete('/{stuff}', 'destroy');
     Route::patch('/{stuff}', 'update');
 });
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/register', function () {
+    return view('register');
+});
