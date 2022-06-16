@@ -70,6 +70,13 @@ class OutstuffController extends Controller
             'tanggal' => 'required',
             'keterangan' => 'required',
         ]);
+        $stuf=Stuff::where('kode',$request->kode)->get()->first()->jumlah;
+        $outstuf=$request->jumlah;
+        $total=$stuf-$outstuf;
+        Stuff::where('kode',$request->kode)
+                  ->update([
+                    'jumlah'=> $total,
+                  ]);
         outstuff::create($request->all());
         return redirect('/stuffout')->with('status','Data Added!');
     }
@@ -115,6 +122,19 @@ class OutstuffController extends Controller
             'tanggal' => 'required',
             'keterangan' => 'required',
         ]);
+        if($request->jumlah>$outstuff->jumlah){
+            $outstuf=$request->jumlah-$outstuff->jumlah;
+        }elseif($request->jumlah<$outstuff->jumlah){
+            $outstuf=$request->jumlah-$outstuff->jumlah;
+        }else{
+            $outstuf=0;
+        }
+        $stuf=Stuff::where('kode',$request->kode)->get()->first()->jumlah;
+        $total=$stuf-$outstuf;
+        Stuff::where('kode',$request->kode)
+                  ->update([
+                    'jumlah'=> $total,
+                  ]);
         outstuff::where('id',$outstuff->id)
               ->update([
                 'kode'=> $request->kode,

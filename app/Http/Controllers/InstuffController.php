@@ -18,7 +18,6 @@ class InstuffController extends Controller
     {
         $Stuffs=Stuff::all();
         $instuff=Instuff::latest();
-        
         if(request('search')){
             $check = true;
             foreach ($Stuffs as $stuff) {
@@ -71,6 +70,13 @@ class InstuffController extends Controller
             'tanggal' => 'required',
             'keterangan' => 'required',
         ]);
+        $stuf=Stuff::where('kode',$request->kode)->get()->first()->jumlah;
+        $instuf=$request->jumlah;
+        $total=$stuf+$instuf;
+        Stuff::where('kode',$request->kode)
+                  ->update([
+                    'jumlah'=> $total,
+                  ]);
         Instuff::create($request->all());
         return redirect('/stuffin')->with('status','Data Added!');
     }
@@ -116,6 +122,19 @@ class InstuffController extends Controller
             'tanggal' => 'required',
             'keterangan' => 'required',
         ]);
+        if($request->jumlah>$instuff->jumlah){
+            $instuf=$request->jumlah-$instuff->jumlah;
+        }elseif($request->jumlah<$instuff->jumlah){
+            $instuf=$request->jumlah-$instuff->jumlah;
+        }else{
+            $instuf=0;
+        }
+        $stuf=Stuff::where('kode',$request->kode)->get()->first()->jumlah;
+        $total=$stuf+$instuf;
+        Stuff::where('kode',$request->kode)
+                  ->update([
+                    'jumlah'=> $total,
+                  ]);
         Instuff::where('id',$instuff->id)
               ->update([
                 'kode'=> $request->kode,
