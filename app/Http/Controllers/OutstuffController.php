@@ -153,6 +153,13 @@ class OutstuffController extends Controller
      */
     public function destroy(outstuff $outstuff)
     {
+        $stuf=Stuff::where('kode',$outstuff->kode)->get()->first()->jumlah;
+        $instuf=$outstuff->jumlah;
+        $total=$stuf+$instuf;
+        Stuff::where('kode',$outstuff->kode)
+                  ->update([
+                    'jumlah'=> $total,
+                  ]);
         outstuff::destroy($outstuff->id);
         return redirect('/stuffout')->with('status','Data Deleted');
     }

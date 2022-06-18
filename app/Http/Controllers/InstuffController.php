@@ -153,6 +153,13 @@ class InstuffController extends Controller
      */
     public function destroy(Instuff $instuff)
     {
+        $stuf=Stuff::where('kode',$instuff->kode)->get()->first()->jumlah;
+        $instuf=$instuff->jumlah;
+        $total=$stuf-$instuf;
+        Stuff::where('kode',$instuff->kode)
+                  ->update([
+                    'jumlah'=> $total,
+                  ]);
         Instuff::destroy($instuff->id);
         return redirect('/stuffin')->with('status','Data Deleted');
     }
