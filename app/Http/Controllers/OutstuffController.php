@@ -12,7 +12,7 @@ class OutstuffController extends Controller
 {
     public function pdf(){
         $Stuffs=Stuff::all()->toArray();
-        $pdf = PDF::loadView('pdf',compact('Stuffs'));
+        $pdf = PDF::loadView('pdfout',compact('Stuffs'));
         return $pdf->download('inventory.pdf');
     }
 

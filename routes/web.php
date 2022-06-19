@@ -21,7 +21,7 @@ Route::controller(InstuffController::class)->group(function () {
     Route::get('/stuffin/formin', 'create');
     Route::post('/stuffin/formin', 'store');
     Route::get('/stuffin/{instuff}/edit', 'edit');
-    Route::get('/stuffin/print', 'pdf');
+    Route::post('/stuffin/print', 'pdf');
     Route::delete('/stuffin/{instuff}', 'destroy');
     Route::patch('/stuffin/{instuff}', 'update');
 });
@@ -30,7 +30,7 @@ Route::controller(OutstuffController::class)->group(function () {
     Route::get('/stuffout/formout', 'create');
     Route::post('/stuffout/formout', 'store');
     Route::get('/stuffout/{outstuff}/edit', 'edit');
-    Route::get('/stuffout/print', 'pdf');
+    Route::post('/stuffout/print', 'pdf');
     Route::delete('/stuffout/{outstuff}', 'destroy');
     Route::patch('/stuffout/{outstuff}', 'update');
 });

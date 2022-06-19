@@ -7,12 +7,13 @@ use App\Http\Requests\StoreInstuffRequest;
 use App\Http\Requests\UpdateInstuffRequest;
 use App\Models\Stuff;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request as HttpRequest;
 
 class InstuffController extends Controller
 {
-    public function pdf(){
-        $Stuffs=Stuff::all()->toArray();
-        $pdf = PDF::loadView('pdf',compact('Stuffs'));
+    public function pdf(HttpRequest $request){
+        $Stuffs=Instuff::whereBetween('tanggal', [$request->tgldari, $request->tglsampai])->get()->toArray();
+        $pdf = PDF::loadView('pdfin',compact('Stuffs'));
         return $pdf->download('inventory.pdf');
     }
     /**

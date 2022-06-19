@@ -11301,11 +11301,11 @@ body.sidebar-toggled footer.sticky-footer {
                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                        <thead>
                            <tr>
-                               <th>No.</th>
-                               <th>Kode Barang</th>
-                               <th>Nama Barang</th>
-                               <th>Jumlah</th>
-                               <th>Status</th>
+                              <th>No.</th>
+                              <th>Nama Barang</th>
+                              <th>Jumlah</th>
+                              <th>Tanggal Masuk</th>
+                              <th>Status Barang</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -11314,9 +11314,9 @@ body.sidebar-toggled footer.sticky-footer {
                                {{-- {{ dd($Stuf) }} --}}
                                <th>{{ $loop->iteration }}</th>
                                <th>{{ $Stuf['kode'] }}</th>
-                               <th>{{ $Stuf['nama'] }}</th>
                                <th>{{ $Stuf['jumlah'] }}</th>
-                               <th>{{ ($Stuf['jumlah']>0)? "Tersedia":"Kosong" }}</th>
+                               <th>{{ $Stuf['tanggal'] }}</th>
+                               <th>{{ $Stuf['keterangan'] }}</th>
                            </tr>
                            @endforeach
                        </tbody>
