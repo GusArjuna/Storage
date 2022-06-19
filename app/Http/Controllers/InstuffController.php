@@ -6,9 +6,15 @@ use App\Models\Instuff;
 use App\Http\Requests\StoreInstuffRequest;
 use App\Http\Requests\UpdateInstuffRequest;
 use App\Models\Stuff;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InstuffController extends Controller
 {
+    public function pdf(){
+        $Stuffs=Stuff::all()->toArray();
+        $pdf = PDF::loadView('pdf',compact('Stuffs'));
+        return $pdf->download('inventory.pdf');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +47,7 @@ class InstuffController extends Controller
             "Stuffins" => $instuff->paginate(8)->withQueryString(),
             "stuffs" => $Stuffs
         ]);
+        
     }
 
     /**

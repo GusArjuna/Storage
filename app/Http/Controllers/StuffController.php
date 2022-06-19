@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Stuff;
 use App\Http\Requests\StoreStuffRequest;
 use App\Http\Requests\UpdateStuffRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class StuffController extends Controller
 {
+    public function pdf(){
+        $Stuffs=Stuff::all()->toArray();
+        $pdf = PDF::loadView('pdf',compact('Stuffs'));
+        return $pdf->download('inventory.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      *

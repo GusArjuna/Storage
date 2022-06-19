@@ -21,6 +21,7 @@ Route::controller(InstuffController::class)->group(function () {
     Route::get('/stuffin/formin', 'create');
     Route::post('/stuffin/formin', 'store');
     Route::get('/stuffin/{instuff}/edit', 'edit');
+    Route::get('/stuffin/print', 'pdf');
     Route::delete('/stuffin/{instuff}', 'destroy');
     Route::patch('/stuffin/{instuff}', 'update');
 });
@@ -29,6 +30,7 @@ Route::controller(OutstuffController::class)->group(function () {
     Route::get('/stuffout/formout', 'create');
     Route::post('/stuffout/formout', 'store');
     Route::get('/stuffout/{outstuff}/edit', 'edit');
+    Route::get('/stuffout/print', 'pdf');
     Route::delete('/stuffout/{outstuff}', 'destroy');
     Route::patch('/stuffout/{outstuff}', 'update');
 });
@@ -37,15 +39,7 @@ Route::controller(StuffController::class)->group(function () {
     Route::get('/codestuff', 'create');
     Route::post('/codestuff', 'store');
     Route::get('/{stuff}/edit', 'edit');
+    Route::get('/print', 'pdf');
     Route::delete('/{stuff}', 'destroy');
     Route::patch('/{stuff}', 'update');
-});
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/forgot', function () {
-    return view('forgot');
 });

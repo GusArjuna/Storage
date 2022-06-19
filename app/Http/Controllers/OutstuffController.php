@@ -6,9 +6,16 @@ use App\Models\outstuff;
 use App\Http\Requests\StoreoutstuffRequest;
 use App\Http\Requests\UpdateoutstuffRequest;
 use App\Models\Stuff;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OutstuffController extends Controller
 {
+    public function pdf(){
+        $Stuffs=Stuff::all()->toArray();
+        $pdf = PDF::loadView('pdf',compact('Stuffs'));
+        return $pdf->download('inventory.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      *
