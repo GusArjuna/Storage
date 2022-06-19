@@ -7,11 +7,12 @@ use App\Http\Requests\StoreoutstuffRequest;
 use App\Http\Requests\UpdateoutstuffRequest;
 use App\Models\Stuff;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request as HttpRequest;
 
 class OutstuffController extends Controller
 {
-    public function pdf(){
-        $Stuffs=Stuff::all()->toArray();
+    public function pdf(HttpRequest $request){
+        $Stuffs=outstuff::whereBetween('tanggal', [$request->tgldari, $request->tglsampai])->get()->toArray();
         $pdf = PDF::loadView('pdfout',compact('Stuffs'));
         return $pdf->download('inventory.pdf');
     }

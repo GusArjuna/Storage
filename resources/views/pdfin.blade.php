@@ -11289,7 +11289,8 @@ body.sidebar-toggled footer.sticky-footer {
    <div class="container mt-3">
             <center>
                 <h6 class="m-0 font-weight-bold text-primary">PT. INDOTANK</h6>
-                <h6 class="m-0 font-weight-bold text-primary">LAPORAN HARIAN INVENTORY</h6>
+                <h6 class="m-0 font-weight-bold text-primary">LAPORAN MASUK</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Periode {{ $tanggal['tgldari'].' s/d.'.$tanggal['tglsampai'] }}</h6>
             </center>
             <hr class="sidebar-divider">
        <div class="card shadow mb-4 border-left-info">
