@@ -11293,9 +11293,9 @@ body.sidebar-toggled footer.sticky-footer {
                 <h6 class="m-0 font-weight-bold text-primary">Periode {{ $tanggal['tgldari'].' s/d.'.$tanggal['tglsampai'] }}</h6>
             </center>
             <hr class="sidebar-divider">
-       <div class="card shadow mb-4 border-left-info">
+       <div class="card shadow mb-4 border-left-success">
            <div class="card-header py-3">
-               <h6 class="m-0 font-weight-bold text-info">Data Barang</h6>
+               <h6 class="m-0 font-weight-bold text-Primary">Data Barang</h6>
            </div>
            <div class="card-body">
                <div class="table-responsive">
@@ -11324,10 +11324,10 @@ body.sidebar-toggled footer.sticky-footer {
                        <tfoot>
                         <tr>
                             <th>No.</th>
-                            <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Jumlah</th>
-                            <th>Status</th>
+                            <th>Tanggal Masuk</th>
+                            <th>Status Barang</th>
                         </tr>
                     </tfoot>
                    </table>

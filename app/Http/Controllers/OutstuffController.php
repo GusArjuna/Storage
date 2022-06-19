@@ -13,8 +13,8 @@ class OutstuffController extends Controller
 {
     public function pdf(HttpRequest $request){
         $Stuffs=outstuff::whereBetween('tanggal', [$request->tgldari, $request->tglsampai])->get()->toArray();
-        $pdf = PDF::loadView('pdfout',compact('Stuffs'));
-        return $pdf->download('inventory.pdf');
+        $pdf = PDF::loadView('pdfout',['Stuffs'=> $Stuffs,'tanggal'=> $request]);
+        return $pdf->download('OutStuff.pdf');
     }
 
     /**

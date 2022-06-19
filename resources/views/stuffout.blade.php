@@ -16,10 +16,11 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Barang Keluar</h1>
-        <a href="{{ url('/stuffout/print') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                <a href="{{ url('/stuffout/formout') }}" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
-                    class="fas fa-share fa-sm text-white-50"></i> Laporan Keluar</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#printModal">
+            Generate Report
+        </button>
+        <a href="{{ url('/stuffout/formout') }}" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
+            class="fas fa-share fa-sm text-white-50"></i> Laporan Keluar</a>
     </div>
 
         <!-- DataTales Example -->
@@ -87,6 +88,40 @@
                 </table>
             </div>
             {{ $Stuffouts->links() }}
+        </div>
+    </div>
+    <div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Generate Report (PDF)</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/stuffout/print">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">From</span>
+                            <input type="date" class="form-control"name="tgldari">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Until</span>
+                            <input type="date" class="form-control" name="tglsampai">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Submit</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

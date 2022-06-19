@@ -13,9 +13,8 @@ class InstuffController extends Controller
 {
     public function pdf(HttpRequest $request){
         $Stuffs=Instuff::whereBetween('tanggal', [$request->tgldari, $request->tglsampai])->get()->toArray();
-        // $pdf = PDF::loadView('pdfin',['Stuffs'=> $Stuffs,'tanggal'=> $request]);
-        // return $pdf->download('inventory.pdf');
-        return view('pdfin',['Stuffs'=> $Stuffs,'tanggal'=> $request]);
+        $pdf = PDF::loadView('pdfin',['Stuffs'=> $Stuffs,'tanggal'=> $request]);
+        return $pdf->download('InStuff.pdf');
     }
     /**
      * Display a listing of the resource.
